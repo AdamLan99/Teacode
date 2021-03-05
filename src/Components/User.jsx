@@ -19,7 +19,7 @@ export default class User extends Component {
             <tr style={{ width: "100%" }}>
                 <td><img src={this.props.avatar} alt="" width={23} /></td>
                 <td>{this.props.name}</td>
-                <td><Checkbox checked={this.state.checked} onClick={console.log(this.props.id)} /></td>
+                <td><Checkbox checked={this.state.checked} onClick={() => this.checkCheckbox()} /></td>
             </tr>
         )
     }
