@@ -104,9 +104,9 @@ export default class Table extends Component {
                 <table className="table mt-2" style={{ textAlign: "center", width: "100%" }}>
                     <thead>
                         <tr>
-                            <th>Avatar</th>
-                            <th>Name</th>
-                            <th></th>
+                            <th style={{ width: "33.3%" }}>Avatar</th>
+                            <th style={{ width: "33.3%" }}>Name</th>
+                            <th style={{ width: "33.3%" }}></th>
                         </tr>
                     </thead>
                     <tbody>
