@@ -66,6 +66,7 @@ export default class Table extends Component {
             )
         )
 
+        //Adding sorting by last name
         users = _.sortBy(users, function (o) {
             return o.props.lastName
         })
@@ -92,7 +93,7 @@ export default class Table extends Component {
         console.log(filteredUsers)
         console.log(usersPerPage)
 
-        for (let i = 1; i <= Math.ceil(filteredUsers / usersPerPage); i++) {
+        for (let i = 1; i <= Math.ceil(filteredUsers.length / usersPerPage); i++) {
             pageNumbers.push(i)
         }
 
