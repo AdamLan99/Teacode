@@ -41,13 +41,21 @@ export default class Table extends Component {
                 users: x,
                 loading: false
             }))
+            .catch(err => console.error(err))
+    }
+
+    async searchUser(e) {
+        this.setState({
+            currentPage: 1,
+            search: e.target.value
+        })
     }
 
     search() {
         return (
             <div className="row shadow py-2">
                 <div className="col-lg-12">
-                    <Search placeholder="Search user" allowClear onChange={e => this.setState({ search: e.target.value })} style={{ width: "100%" }} />
+                    <Search placeholder="Search user" allowClear onChange={e => this.searchUser(e)} style={{ width: "100%" }} />
                 </div>
             </div>
         )
