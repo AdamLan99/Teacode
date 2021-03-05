@@ -2,8 +2,10 @@
 import React, { Component } from 'react'
 import User from './User'
 //import "rsuite/dist/styles/rsuite-default.css";
-import { Pagination } from "antd"
+import { Pagination, Input } from "antd"
 import 'antd/dist/antd.css'; // or 'antd/dist/antd.less'
+
+const { Search } = Input
 
 export default class Table extends Component {
 
@@ -44,11 +46,8 @@ export default class Table extends Component {
     search() {
         return (
             <div className="row shadow py-2">
-                <div className="col-lg-6">
-                    <p>Adam Łangowski for Teacode.</p>
-                </div>
-                <div className="col-lg-6">
-                    <input className="input input-group p-2" type="search" name="search" id="" placeholder="Search user" onChange={e => this.onChange(e)} />
+                <div className="col-lg-12">
+                    <Search placeholder="Search user" allowClear onChange={e => this.onChange(e)} style={{ width: "100%" }} />
                 </div>
             </div>
         )
