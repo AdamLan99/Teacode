@@ -2,7 +2,7 @@
 import React, { Component } from 'react'
 import User from './User'
 //import "rsuite/dist/styles/rsuite-default.css";
-import { Pagination, Input } from "antd"
+import { Input } from "antd"
 import 'antd/dist/antd.css'; // or 'antd/dist/antd.less'
 
 const { Search } = Input
