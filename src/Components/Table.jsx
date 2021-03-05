@@ -1,7 +1,7 @@
-//import { Pagination } from 'rsuite'
+import { Pagination } from 'rsuite'
 import React, { Component } from 'react'
 import User from './User'
-//import "rsuite/dist/styles/rsuite-default.css";
+import "rsuite/dist/styles/rsuite-default.css";
 import { Input } from "antd"
 import 'antd/dist/antd.css'; // or 'antd/dist/antd.less'
 
@@ -47,7 +47,7 @@ export default class Table extends Component {
         return (
             <div className="row shadow py-2">
                 <div className="col-lg-12">
-                    <Search placeholder="Search user" allowClear onChange={e => this.setState({ search: e })} style={{ width: "100%" }} />
+                    <Search placeholder="Search user" allowClear onChange={e => console.log(e)} style={{ width: "100%" }} />
                 </div>
             </div>
         )
@@ -85,7 +85,7 @@ export default class Table extends Component {
             }
         )
 
-        /*Working on pagination - users shown
+        //Working on pagination - users shown
         let { currentPage, usersPerPage } = this.state
 
         let indexOfLastUser = currentPage * usersPerPage
@@ -98,7 +98,6 @@ export default class Table extends Component {
         for (let i = 1; i <= Math.ceil(filteredUsers.length / usersPerPage); i++) {
             pageNumbers.push(i)
         }
-        */
 
         return (
             <div>
@@ -111,28 +110,25 @@ export default class Table extends Component {
                         </tr>
                     </thead>
                     <tbody>
-                        {filteredUsers}
+                        {currentUsers}
                     </tbody>
                 </table>
-                {/*<div className="row">
+                {<div className="row">
                     <div className="col-lg-4"></div>
                     <div className="col-lg-4">
                         <Pagination
-                            /*style={{ width: "100%" }}
-                            {...this.state}
+                            prev
+                            last
+                            next
+                            first
+                            size="md"
                             pages={pageNumbers.length}
-                            maxButtons={5}
-                            currentPage={this.state.currentPage}
-                            onSelect={e => this.setState({ currentPage: e })}
-                            style={{ width: "100%" }}
-                            current={this.state.currentPage}
-                            onChange={page => this.setState({ currentPage: page })}
-                            total={pageNumbers.length}
+                            activePage={this.state.currentPage}
+                            onSelect={e => console.log(e)}
                         />
-
                     </div>
                     <div className="col-lg-4"></div>
-                    </div>*/}
+                </div>}
             </div>
         )
     }
