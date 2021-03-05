@@ -1,12 +1,12 @@
-import { Pagination } from 'antd'
+import { Pagination } from 'rsuite'
 import React, { Component } from 'react'
 import User from './User'
-//import User from "./User"
 
 export default class Table extends Component {
 
     state = {
         users: [],
+        loading: true,
         search: "",
         sortBy: "lastName",
         usersPerPage: 10,
@@ -32,7 +32,10 @@ export default class Table extends Component {
             }
         })
             .then(x => x.json())
-            .then(x => this.setState({ users: x }))
+            .then(x => this.setState({
+                users: x,
+                loading: false
+            }))
     }
 
     search() {
@@ -99,7 +102,13 @@ export default class Table extends Component {
                 <div className="row">
                     <div className="col-lg-4"></div>
                     <div className="col-lg-4">
-                        <Pagination defaultCurrent={1} total={pageNumbers.length} />
+                        <Pagination
+                            {...this.state}
+                            pages={pageNumbers.length}
+                            maxButtons={5}
+                            currentPage={this.state.currentPage}
+                            onSelect={e => this.setState({ currentPage: e })}
+                        />
                     </div>
                     <div className="col-lg-4"></div>
                 </div>
@@ -108,11 +117,17 @@ export default class Table extends Component {
     }
 
     render() {
-        return (
-            <div>
-                {this.search()}
-                {this.table()}
-            </div >
-        )
+        if (!this.state.loading) {
+            return (
+                <div>
+                    {this.search()}
+                    {this.table()}
+                </div >
+            )
+        } else {
+            return (
+                <p>Loading users, please wait...</p>
+            )
+        }
     }
 }
