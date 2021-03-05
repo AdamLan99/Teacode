@@ -100,17 +100,19 @@ export default class Table extends Component {
         }
 
         return (
-            <table className="table mt-2" style={{ textAlign: "center", width: "100%" }}>
-                <thead>
-                    <tr>
-                        <th>Avatar</th>
-                        <th>Name</th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {currentUsers}
-                </tbody>
+            <div>
+                <table className="table mt-2" style={{ textAlign: "center", width: "100%" }}>
+                    <thead>
+                        <tr>
+                            <th>Avatar</th>
+                            <th>Name</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {currentUsers}
+                    </tbody>
+                </table>
                 <div className="row">
                     <div className="col-lg-4"></div>
                     <div className="col-lg-4">
@@ -126,10 +128,17 @@ export default class Table extends Component {
                             onChange={page => this.setState({ currentPage: page })}
                             total={pageNumbers.length}
                         />
+
                     </div>
                     <div className="col-lg-4"></div>
                 </div>
-            </table>
+            </div>
+        )
+    }
+
+    pagination() {
+        return (
+
         )
     }
 
