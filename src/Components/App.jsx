@@ -4,7 +4,7 @@ import Table from "./Table"
 export default class App extends Component {
   render() {
     return (
-      <div>
+      <div className="container-fluid">
         <Table />
       </div>
     )
