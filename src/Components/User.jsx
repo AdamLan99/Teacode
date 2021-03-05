@@ -1,14 +1,15 @@
 import React, { Component } from 'react'
+import { Checkbox } from "antd"
 
 export default class User extends Component {
     render() {
         return (
             <tr>
-                <td><img src={this.props.avatar} alt="" width={25}/></td>
-                <td>{this.props.firstName}</td>
-                <td>{this.props.lastName}</td>
+                <td><img src={this.props.avatar} alt="" width={25} /></td>
+                <td>{this.props.name}</td>
                 <td>{this.props.email}</td>
                 <td>{this.props.gender}</td>
+                <td><Checkbox /></td>
             </tr>
         )
     }

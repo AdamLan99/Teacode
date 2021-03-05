@@ -6,10 +6,17 @@ export default class Table extends Component {
 
     state = {
         users: [],
-        filter: "",
+        search: "",
         sortBy: "lastName",
         usersPerPage: 10,
-        currentPage: 10
+        currentPage: 1
+    }
+
+    onChange(e) {
+        const { name, value } = e.target
+        this.setState({
+            [name]: value
+        })
     }
 
     componentDidMount() {
@@ -22,7 +29,9 @@ export default class Table extends Component {
             headers: {
                 "Accept": "application/json"
             }
-        }).then(x => x.json()).then(x => this.setState({ users: x }))
+        })
+        .then(x => x.json())
+        .then(x => this.setState({ users: x }))
     }
 
     search() {
@@ -30,38 +39,47 @@ export default class Table extends Component {
             <div className="row">
                 <div className="col-lg-8"></div>
                 <div className="col-lg-4">
-                    <input type="search" name="" id="" />
+                    <input type="search" name="search" id="" onChange={e => this.onChange(e)} />
                 </div>
             </div>
         )
     }
 
     table() {
+        //Initiating user component
         let users = this.state.users.map(
             x => (
                 <User
                     key={x.id}
-                    firstName={x.first_name}
-                    lastName={x.last_name}
+                    name={`${x.first_name} ${x.last_name}`}
                     email={x.email}
                     gender={x.gender}
                     avatar={x.avatar}
-                />)
+                />
+            )
+        )
+
+        //Filtering users by search value
+        let filteredUsers = users.filter(
+            x => {
+                return x.props.name
+                    .toLowerCase()
+                    .includes(this.state.search.toLowerCase())
+            }
         )
 
         return (
-            <table className="table" style={{textAlign: "center"}}>
+            <table className="table" style={{ textAlign: "center" }}>
                 <thead>
                     <tr>
-                        <th>First name</th>
-                        <th>Last name</th>
-                        <th>Email</th>
-                        <th>Gender</th>
                         <th>Avatar</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
-                    {users}
+                    {filteredUsers}
                 </tbody>
             </table>
         )
@@ -70,9 +88,9 @@ export default class Table extends Component {
     render() {
         return (
             <div>
-                {this.search()}
-                {this.table()}
-            </div>
+                { this.search()}
+                { this.table()}
+            </div >
         )
     }
 }
