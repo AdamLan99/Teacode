@@ -93,8 +93,10 @@ export default class Table extends Component {
             pageNumbers.push(i)
         }
 
+        console.log(pageNumbers)
+
         return (
-            <table className="table" style={{ textAlign: "center", width: "100%" }}>
+            <table className="table mt-2" style={{ textAlign: "center", width: "100%" }}>
                 <thead>
                     <tr>
                         <th>Avatar</th>
