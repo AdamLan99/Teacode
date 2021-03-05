@@ -40,9 +40,8 @@ export default class Table extends Component {
 
     search() {
         return (
-            <div className="row shadow">
-                <div className="col-lg-8"></div>
-                <div className="col-lg-4">
+            <div className="row shadow py-2">
+                <div className="col-lg-12">
                     <input className="input-group p-2" type="search" name="search" id="" onChange={e => this.onChange(e)} />
                 </div>
             </div>
