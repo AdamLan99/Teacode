@@ -40,10 +40,10 @@ export default class Table extends Component {
 
     search() {
         return (
-            <div className="row">
+            <div className="row shadow">
                 <div className="col-lg-8"></div>
                 <div className="col-lg-4">
-                    <input type="search" name="search" id="" onChange={e => this.onChange(e)} />
+                    <input className="input-group p-2" type="search" name="search" id="" onChange={e => this.onChange(e)} />
                 </div>
             </div>
         )
@@ -67,7 +67,7 @@ export default class Table extends Component {
             )
         )
 
-        users = _.sortBy(users, function(o) {
+        users = _.sortBy(users, function (o) {
             return o.props.lastName
         })
 
@@ -128,7 +128,13 @@ export default class Table extends Component {
             return (
                 <div>
                     {this.search()}
-                    {this.table()}
+                    <div className="row">
+                        <div className="col-lg-3"></div>
+                        <div className="col-lg-6">
+                            {this.table()}
+                        </div>
+                        <div className="col-lg-3"></div>
+                    </div>
                 </div >
             )
         } else {
