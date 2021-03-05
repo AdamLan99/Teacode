@@ -70,6 +70,7 @@ export default class Table extends Component {
             x => (
                 <User
                     key={x.id}
+                    id={x.id}
                     name={`${x.first_name} ${x.last_name}`}
                     lastName={x.last_name}
                     email={x.email}
