@@ -85,7 +85,7 @@ export default class Table extends Component {
             }
         )
 
-        //Working on pagination - users shown
+        /*Working on pagination - users shown
         let { currentPage, usersPerPage } = this.state
 
         let indexOfLastUser = currentPage * usersPerPage
@@ -98,6 +98,7 @@ export default class Table extends Component {
         for (let i = 1; i <= Math.ceil(filteredUsers.length / usersPerPage); i++) {
             pageNumbers.push(i)
         }
+        */
 
         return (
             <div>
@@ -110,10 +111,10 @@ export default class Table extends Component {
                         </tr>
                     </thead>
                     <tbody>
-                        {currentUsers}
+                        {filteredUsers}
                     </tbody>
                 </table>
-                <div className="row">
+                {/*<div className="row">
                     <div className="col-lg-4"></div>
                     <div className="col-lg-4">
                         <Pagination
@@ -122,7 +123,7 @@ export default class Table extends Component {
                             pages={pageNumbers.length}
                             maxButtons={5}
                             currentPage={this.state.currentPage}
-                            onSelect={e => this.setState({ currentPage: e })}*/
+                            onSelect={e => this.setState({ currentPage: e })}
                             style={{ width: "100%" }}
                             current={this.state.currentPage}
                             onChange={page => this.setState({ currentPage: page })}
@@ -131,7 +132,7 @@ export default class Table extends Component {
 
                     </div>
                     <div className="col-lg-4"></div>
-                </div>
+                    </div>*/}
             </div>
         )
     }
