@@ -89,6 +89,9 @@ export default class Table extends Component {
         //Working on pagination - pagination component
         let pageNumbers = []
 
+        console.log(filteredUsers)
+        console.log(usersPerPage)
+
         for (let i = 1; i <= Math.ceil(filteredUsers / usersPerPage); i++) {
             pageNumbers.push(i)
         }
