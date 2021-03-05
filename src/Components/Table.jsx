@@ -50,6 +50,9 @@ export default class Table extends Component {
     }
 
     table() {
+        //Importing lodash
+        let _ = require("lodash")
+
         //Initiating user component
         let users = this.state.users.map(
             x => (
@@ -62,6 +65,10 @@ export default class Table extends Component {
                 />
             )
         )
+
+        users = _.sortBy(users, function(o) {
+            return o.props.name
+        })
 
         //Filtering users by search value
         let filteredUsers = users.filter(
@@ -92,7 +99,6 @@ export default class Table extends Component {
                     <tr>
                         <th>Avatar</th>
                         <th>Name</th>
-                        <th>Email</th>
                         <th></th>
                     </tr>
                 </thead>

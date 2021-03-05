@@ -4,7 +4,7 @@ import { Checkbox } from "antd"
 export default class User extends Component {
     render() {
         return (
-            <tr>
+            <tr style={{ width: "100%" }}>
                 <td><img src={this.props.avatar} alt="" width={25} /></td>
                 <td>{this.props.name}</td>
                 <td><Checkbox /></td>
