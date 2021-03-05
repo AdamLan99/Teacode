@@ -47,7 +47,7 @@ export default class Table extends Component {
         return (
             <div className="row shadow py-2">
                 <div className="col-lg-12">
-                    <Search placeholder="Search user" allowClear onChange={e => console.log(e)} style={{ width: "100%" }} />
+                    <Search placeholder="Search user" allowClear onChange={e => this.setState({ search: e.target.value })} style={{ width: "100%" }} />
                 </div>
             </div>
         )
@@ -124,7 +124,7 @@ export default class Table extends Component {
                             size="md"
                             pages={pageNumbers.length}
                             activePage={this.state.currentPage}
-                            onSelect={e => console.log(e)}
+                            onSelect={e => this.setState({ currentPage: e })}
                         />
                     </div>
                     <div className="col-lg-4"></div>
