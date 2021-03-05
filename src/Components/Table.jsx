@@ -1,3 +1,4 @@
+import { Pagination } from 'antd'
 import React, { Component } from 'react'
 import User from './User'
 //import User from "./User"
@@ -68,15 +69,22 @@ export default class Table extends Component {
             }
         )
 
-        //Working on pagination
+        //Working on pagination - users shown
         let { currentPage, usersPerPage } = this.state
 
         let indexOfLastUser = currentPage * usersPerPage
         let indexOfFirstUser = indexOfLastUser - usersPerPage
         let currentUsers = filteredUsers.slice(indexOfFirstUser, indexOfLastUser)
 
+        //Working on pagination - pagination component
+        let pageNumbers = []
+
+        for (let i = 1; i <= Math.ceil(filteredUsers / usersPerPage); i++) {
+            pageNumbers.push(i)
+        }
+
         return (
-            <table className="table" style={{ textAlign: "center" }}>
+            <table className="table" style={{ textAlign: "center", width: "100%" }}>
                 <thead>
                     <tr>
                         <th>Avatar</th>
@@ -88,6 +96,13 @@ export default class Table extends Component {
                 <tbody>
                     {currentUsers}
                 </tbody>
+                <div className="row">
+                    <div className="col-lg-4"></div>
+                    <div className="col-lg-4">
+                        <Pagination defaultCurrent={1} total={pageNumbers.length} />
+                    </div>
+                    <div className="col-lg-4"></div>
+                </div>
             </table>
         )
     }
@@ -95,8 +110,8 @@ export default class Table extends Component {
     render() {
         return (
             <div>
-                { this.search()}
-                { this.table()}
+                {this.search()}
+                {this.table()}
             </div >
         )
     }
