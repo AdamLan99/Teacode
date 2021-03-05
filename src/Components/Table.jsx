@@ -124,17 +124,20 @@ export default class Table extends Component {
                 {<div className="row">
                     <div className="col-lg-4"></div>
                     <div className="col-lg-4">
-                        <Pagination
-                            prev
-                            last
-                            next
-                            first
-                            size="md"
-                            maxButtons={5}
-                            pages={pageNumbers.length}
-                            activePage={this.state.currentPage}
-                            onSelect={e => this.setState({ currentPage: e })}
-                        />
+                        {pageNumbers.length > 1 ? (
+                            <Pagination
+                                prev
+                                last
+                                next
+                                first
+                                size="md"
+                                maxButtons={5}
+                                pages={pageNumbers.length}
+                                activePage={this.state.currentPage}
+                                onSelect={e => this.setState({ currentPage: e })}
+                            />
+                        ) : null}
+
                     </div>
                     <div className="col-lg-4"></div>
                 </div>}

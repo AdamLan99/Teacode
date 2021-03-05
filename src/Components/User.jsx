@@ -7,7 +7,7 @@ export default class User extends Component {
             <tr style={{ width: "100%" }}>
                 <td><img src={this.props.avatar} alt="" width={23} /></td>
                 <td>{this.props.name}</td>
-                <td><Checkbox /></td>
+                <td><Checkbox onClick={console.log(this.props.id)} /></td>
             </tr>
         )
     }
