@@ -1,7 +1,8 @@
-import { Pagination } from 'rsuite'
+//import { Pagination } from 'rsuite'
 import React, { Component } from 'react'
 import User from './User'
-import "rsuite/dist/styles/rsuite-default.css";
+//import "rsuite/dist/styles/rsuite-default.css";
+import { Pagination } from "antd"
 
 export default class Table extends Component {
 
@@ -114,12 +115,15 @@ export default class Table extends Component {
                     <div className="col-lg-4"></div>
                     <div className="col-lg-4">
                         <Pagination
-                            style={{ width: "100%" }}
+                            /*style={{ width: "100%" }}
                             {...this.state}
                             pages={pageNumbers.length}
                             maxButtons={5}
                             currentPage={this.state.currentPage}
-                            onSelect={e => this.setState({ currentPage: e })}
+                            onSelect={e => this.setState({ currentPage: e })}*/
+                            current={this.state.currentPage}
+                            onChange={page => this.setState({ currentPage: page })}
+                            total={pageNumbers.length}
                         />
                     </div>
                     <div className="col-lg-4"></div>
