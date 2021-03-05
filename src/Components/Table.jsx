@@ -30,8 +30,8 @@ export default class Table extends Component {
                 "Accept": "application/json"
             }
         })
-        .then(x => x.json())
-        .then(x => this.setState({ users: x }))
+            .then(x => x.json())
+            .then(x => this.setState({ users: x }))
     }
 
     search() {
@@ -68,6 +68,13 @@ export default class Table extends Component {
             }
         )
 
+        //Working on pagination
+        let { currentPage, usersPerPage } = this.state
+
+        let indexOfLastUser = currentPage * usersPerPage
+        let indexOfFirstUser = indexOfLastUser - usersPerPage
+        let currentUsers = filteredUsers.slice(indexOfFirstUser, indexOfLastUser)
+
         return (
             <table className="table" style={{ textAlign: "center" }}>
                 <thead>
@@ -79,7 +86,7 @@ export default class Table extends Component {
                     </tr>
                 </thead>
                 <tbody>
-                    {filteredUsers}
+                    {currentUsers}
                 </tbody>
             </table>
         )

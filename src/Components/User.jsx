@@ -7,8 +7,6 @@ export default class User extends Component {
             <tr>
                 <td><img src={this.props.avatar} alt="" width={25} /></td>
                 <td>{this.props.name}</td>
-                <td>{this.props.email}</td>
-                <td>{this.props.gender}</td>
                 <td><Checkbox /></td>
             </tr>
         )
