@@ -161,7 +161,7 @@ export default class Table extends Component {
             )
         } else {
             return (
-                <p>Loading users, please wait...</p>
+                <p className="p-3">Loading users, please wait... :)</p>
             )
         }
     }
