@@ -122,6 +122,7 @@ export default class Table extends Component {
                             next
                             first
                             size="md"
+                            maxButtons={5}
                             pages={pageNumbers.length}
                             activePage={this.state.currentPage}
                             onSelect={e => this.setState({ currentPage: e })}
