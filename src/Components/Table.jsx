@@ -42,7 +42,7 @@ export default class Table extends Component {
         return (
             <div className="row shadow py-2">
                 <div className="col-lg-12">
-                    <input className="input-group p-2" type="search" name="search" id="" onChange={e => this.onChange(e)} />
+                    <input className="input-group p-2" type="search" name="search" id="" placeholder="Search user" onChange={e => this.onChange(e)} />
                 </div>
             </div>
         )
