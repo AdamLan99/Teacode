@@ -47,7 +47,7 @@ export default class Table extends Component {
         return (
             <div className="row shadow py-2">
                 <div className="col-lg-12">
-                    <Search placeholder="Search user" allowClear onChange={e => this.onChange(e)} style={{ width: "100%" }} />
+                    <Search placeholder="Search user" allowClear onChange={e => this.setState({ search: e })} style={{ width: "100%" }} />
                 </div>
             </div>
         )
@@ -139,11 +139,11 @@ export default class Table extends Component {
                 <div>
                     {this.search()}
                     <div className="row">
-                        <div className="col-lg-3"></div>
-                        <div className="col-lg-6">
+                        <div className="col-lg-1"></div>
+                        <div className="col-lg-10">
                             {this.table()}
                         </div>
-                        <div className="col-lg-3"></div>
+                        <div className="col-lg-1"></div>
                     </div>
                 </div >
             )
