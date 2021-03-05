@@ -59,6 +59,7 @@ export default class Table extends Component {
                 <User
                     key={x.id}
                     name={`${x.first_name} ${x.last_name}`}
+                    lastName={x.last_name}
                     email={x.email}
                     gender={x.gender}
                     avatar={x.avatar}
@@ -67,7 +68,7 @@ export default class Table extends Component {
         )
 
         users = _.sortBy(users, function(o) {
-            return o.props.name
+            return o.props.lastName
         })
 
         //Filtering users by search value
