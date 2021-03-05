@@ -1,6 +1,7 @@
 import { Pagination } from 'rsuite'
 import React, { Component } from 'react'
 import User from './User'
+import "rsuite/dist/styles/rsuite-default.css";
 
 export default class Table extends Component {
 
@@ -41,7 +42,10 @@ export default class Table extends Component {
     search() {
         return (
             <div className="row shadow py-2">
-                <div className="col-lg-12">
+                <div className="col-lg-6">
+                    <span>Adam Łangowski for Teacode.</span>
+                </div>
+                <div className="col-lg-6">
                     <input className="input-group p-2" type="search" name="search" id="" placeholder="Search user" onChange={e => this.onChange(e)} />
                 </div>
             </div>
@@ -89,9 +93,6 @@ export default class Table extends Component {
 
         //Working on pagination - pagination component
         let pageNumbers = []
-
-        console.log(filteredUsers)
-        console.log(usersPerPage)
 
         for (let i = 1; i <= Math.ceil(filteredUsers.length / usersPerPage); i++) {
             pageNumbers.push(i)
