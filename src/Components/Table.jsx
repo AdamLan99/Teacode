@@ -136,12 +136,6 @@ export default class Table extends Component {
         )
     }
 
-    pagination() {
-        return (
-
-        )
-    }
-
     render() {
         if (!this.state.loading) {
             return (
