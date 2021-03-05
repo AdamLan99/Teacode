@@ -7,7 +7,9 @@ export default class Table extends Component {
     state = {
         users: [],
         filter: "",
-        sortBy: "lastName"
+        sortBy: "lastName",
+        usersPerPage: 10,
+        currentPage: 10
     }
 
     componentDidMount() {
