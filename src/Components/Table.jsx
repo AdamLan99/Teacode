@@ -98,8 +98,6 @@ export default class Table extends Component {
             pageNumbers.push(i)
         }
 
-        console.log(pageNumbers)
-
         return (
             <table className="table mt-2" style={{ textAlign: "center", width: "100%" }}>
                 <thead>
@@ -116,6 +114,7 @@ export default class Table extends Component {
                     <div className="col-lg-4"></div>
                     <div className="col-lg-4">
                         <Pagination
+                            style={{ width: "100%" }}
                             {...this.state}
                             pages={pageNumbers.length}
                             maxButtons={5}
